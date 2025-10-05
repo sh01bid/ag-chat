@@ -1,15 +1,36 @@
 const dotenv = require('dotenv');
+const os = require('node:os');
 
 dotenv.config();
 
 const packageJSON = require('./package.json');
 
 const channel = process.env.UPDATE_CHANNEL;
+const arch = os.arch();
+const hasAppleCertificate = Boolean(process.env.CSC_LINK);
 
 console.log(`🚄 Build Version ${packageJSON.version}, Channel: ${channel}`);
+console.log(`🏗️ Building for architecture: ${arch}`);
 
 const isNightly = channel === 'nightly';
 const isBeta = packageJSON.name.includes('beta');
+
+// https://www.electron.build/code-signing-mac#how-to-disable-code-signing-during-the-build-process-on-macos
+if (!hasAppleCertificate) {
+  // Disable auto discovery to keep electron-builder from searching unavailable signing identities
+  process.env.CSC_IDENTITY_AUTO_DISCOVERY = 'false';
+  console.log('⚠️ Apple certificate link not found, macOS artifacts will be unsigned.');
+}
+
+// 根据版本类型确定协议 scheme
+const getProtocolScheme = () => {
+  if (isNightly) return 'lobehub-nightly';
+  if (isBeta) return 'lobehub-beta';
+
+  return 'lobehub';
+};
+
+const protocolScheme = getProtocolScheme();
 
 /**
  * @type {import('electron-builder').Configuration}
@@ -54,12 +75,18 @@ const config = {
   linux: {
     category: 'Utility',
     maintainer: 'electronjs.org',
-    target: ['AppImage', 'snap', 'deb'],
+    target: ['AppImage', 'snap', 'deb', 'rpm', 'tar.gz'],
   },
   mac: {
     compression: 'maximum',
     entitlementsInherit: 'build/entitlements.mac.plist',
     extendInfo: {
+      CFBundleURLTypes: [
+        {
+          CFBundleURLName: 'LobeHub Protocol',
+          CFBundleURLSchemes: [protocolScheme],
+        },
+      ],
       NSCameraUsageDescription: "Application requests access to the device's camera.",
       NSDocumentsFolderUsageDescription:
         "Application requests access to the user's Documents folder.",
@@ -68,15 +95,17 @@ const config = {
       NSMicrophoneUsageDescription: "Application requests access to the device's microphone.",
     },
     gatekeeperAssess: false,
-    hardenedRuntime: true,
-    notarize: true,
+    hardenedRuntime: hasAppleCertificate,
+    notarize: hasAppleCertificate,
+    ...(hasAppleCertificate ? {} : { identity: null }),
     target:
-      // 降低构建时间，nightly 只打 arm64
+      // 降低构建时间，nightly 只打 dmg
+      // 根据当前机器架构只构建对应架构的包
       isNightly
-        ? [{ arch: ['arm64'], target: 'dmg' }]
+        ? [{ arch: [arch === 'arm64' ? 'arm64' : 'x64'], target: 'dmg' }]
         : [
-            { arch: ['x64', 'arm64'], target: 'dmg' },
-            { arch: ['x64', 'arm64'], target: 'zip' },
+            { arch: [arch === 'arm64' ? 'arm64' : 'x64'], target: 'dmg' },
+            { arch: [arch === 'arm64' ? 'arm64' : 'x64'], target: 'zip' },
           ],
   },
   npmRebuild: true,
@@ -91,6 +120,12 @@ const config = {
     uninstallDisplayName: '${productName}',
     uninstallerSidebar: './build/nsis-sidebar.bmp',
   },
+  protocols: [
+    {
+      name: 'LobeHub Protocol',
+      schemes: [protocolScheme],
+    },
+  ],
   publish: [
     {
       owner: 'lobehub',

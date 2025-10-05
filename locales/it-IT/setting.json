@@ -183,9 +183,20 @@
     "title": "Informazioni sull'assistente"
   },
   "settingAppearance": {
+    "animationMode": {
+      "agile": "Agile",
+      "desc": "Seleziona la velocità dell'animazione per la risposta delle azioni dell'applicazione",
+      "disabled": "Disattivato",
+      "elegant": "Elegante",
+      "title": "Animazione di risposta"
+    },
     "neutralColor": {
       "desc": "Personalizzazione dei grigi con diverse inclinazioni di colore",
       "title": "Colore Neutro"
+    },
+    "noAnimation": {
+      "desc": "Disabilita tutte le animazioni nell'applicazione",
+      "title": "Modalità senza animazioni"
     },
     "preview": {
       "title": "Tavolozza"
@@ -225,6 +236,10 @@
       "setlimited": "Imposta il numero di messaggi storici da utilizzare",
       "title": "Limita il numero di messaggi storici",
       "unlimited": "Numero illimitato di messaggi storici"
+    },
+    "enableStreaming": {
+      "desc": "Abilita l'output in streaming per visualizzare la risposta in tempo reale. Se disabilitato, verrà mostrata solo la risposta completa.",
+      "title": "Abilita output in streaming"
     },
     "historyCount": {
       "desc": "Numero di messaggi inclusi in ogni richiesta (inclusi gli ultimi messaggi scritti, ogni domanda e risposta conta come 1)",

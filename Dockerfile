@@ -1,5 +1,5 @@
 ## Set global build ENV
-ARG NODEJS_VERSION="22"
+ARG NODEJS_VERSION="24"
 
 ## Base image for all building stages
 FROM node:${NODEJS_VERSION}-slim AS base
@@ -66,7 +66,7 @@ ENV NEXT_PUBLIC_ANALYTICS_UMAMI="${NEXT_PUBLIC_ANALYTICS_UMAMI}" \
     NEXT_PUBLIC_UMAMI_WEBSITE_ID="${NEXT_PUBLIC_UMAMI_WEBSITE_ID}"
 
 # Node
-ENV NODE_OPTIONS="--max-old-space-size=8192"
+ENV NODE_OPTIONS="--max-old-space-size=6144"
 
 WORKDIR /app
 
@@ -126,7 +126,7 @@ ENV NODE_ENV="production" \
     NODE_OPTIONS="--dns-result-order=ipv4first --use-openssl-ca" \
     NODE_EXTRA_CA_CERTS="" \
     NODE_TLS_REJECT_UNAUTHORIZED="" \
-    SSL_CERT_DIR="/etc/ssl/certs/ca-certificates.crt"
+    SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 
 # Make the middleware rewrite through local as default
 # refs: https://github.com/lobehub/lobe-chat/issues/5876
@@ -150,6 +150,8 @@ ENV \
     AI21_API_KEY="" AI21_MODEL_LIST="" \
     # Ai360
     AI360_API_KEY="" AI360_MODEL_LIST="" \
+    # AiHubMix
+    AIHUBMIX_API_KEY="" AIHUBMIX_MODEL_LIST="" \
     # Anthropic
     ANTHROPIC_API_KEY="" ANTHROPIC_MODEL_LIST="" ANTHROPIC_PROXY_URL="" \
     # Amazon Bedrock
@@ -192,6 +194,10 @@ ENV \
     MODELSCOPE_API_KEY="" MODELSCOPE_MODEL_LIST="" MODELSCOPE_PROXY_URL="" \
     # Moonshot
     MOONSHOT_API_KEY="" MOONSHOT_MODEL_LIST="" MOONSHOT_PROXY_URL="" \
+    # Nebius
+    NEBIUS_API_KEY="" NEBIUS_MODEL_LIST="" NEBIUS_PROXY_URL="" \
+    # NewAPI
+    NEWAPI_API_KEY="" NEWAPI_PROXY_URL="" \
     # Novita
     NOVITA_API_KEY="" NOVITA_MODEL_LIST="" \
     # Nvidia NIM
@@ -245,7 +251,15 @@ ENV \
     # Tencent Cloud
     TENCENT_CLOUD_API_KEY="" TENCENT_CLOUD_MODEL_LIST="" \
     # Infini-AI
-    INFINIAI_API_KEY="" INFINIAI_MODEL_LIST=""
+    INFINIAI_API_KEY="" INFINIAI_MODEL_LIST="" \
+    # 302.AI
+    AI302_API_KEY="" AI302_MODEL_LIST="" \
+    # FAL
+    FAL_API_KEY="" FAL_MODEL_LIST="" \
+    # BFL
+    BFL_API_KEY="" BFL_MODEL_LIST="" \
+    # Vercel AI Gateway
+    VERCELAIGATEWAY_API_KEY="" VERCELAIGATEWAY_MODEL_LIST=""
 
 USER nextjs
 

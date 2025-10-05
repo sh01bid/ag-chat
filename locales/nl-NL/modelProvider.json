@@ -153,6 +153,28 @@
     "searchProviders": "Zoek providers...",
     "sort": "Aangepaste sortering"
   },
+  "newapi": {
+    "apiKey": {
+      "desc": "API-sleutel geleverd door het New API-platform",
+      "placeholder": "New API API-sleutel",
+      "required": "API-sleutel is verplicht",
+      "title": "API-sleutel"
+    },
+    "apiUrl": {
+      "desc": "API-adres van de New API-service, meestal met /v1",
+      "title": "API-adres"
+    },
+    "enabled": {
+      "title": "New API inschakelen"
+    },
+    "models": {
+      "batchSelect": "Modellen in batch selecteren ({{count}})",
+      "fetch": "Modelijst ophalen",
+      "selected": "Geselecteerde modellen",
+      "title": "Beschikbare modellen"
+    },
+    "title": "New API"
+  },
   "ollama": {
     "checker": {
       "desc": "Test of het proxyadres correct is ingevuld",
@@ -185,10 +207,15 @@
     }
   },
   "providerModels": {
+    "batchSelect": {
+      "selected": "{{count}} modellen geselecteerd",
+      "title": "Batchselectie"
+    },
     "config": {
       "aesGcm": "Je sleutel en proxy-adres worden versleuteld met <1>AES-GCM</1> encryptie-algoritme",
       "apiKey": {
         "desc": "Vul je {{name}} API-sleutel in",
+        "descWithUrl": "Vul je {{name}} API-sleutel in, <3>klik hier om deze te verkrijgen</3>",
         "placeholder": "{{name}} API-sleutel",
         "title": "API-sleutel"
       },
@@ -305,6 +332,7 @@
         "latestTime": "Laatste update tijd: {{time}}",
         "noLatestTime": "Lijst nog niet opgehaald"
       },
+      "noModelsInCategory": "Er zijn geen ingeschakelde modellen in deze categorie",
       "resetAll": {
         "conform": "Weet je zeker dat je alle wijzigingen van het huidige model wilt resetten? Na de reset zal de huidige modellenlijst terugkeren naar de standaardstatus",
         "success": "Resetten geslaagd",
@@ -315,7 +343,15 @@
       "title": "Modellenlijst",
       "total": "In totaal {{count}} modellen beschikbaar"
     },
-    "searchNotFound": "Geen zoekresultaten gevonden"
+    "searchNotFound": "Geen zoekresultaten gevonden",
+    "tabs": {
+      "all": "Alles",
+      "chat": "Chat",
+      "embedding": "Inbedding",
+      "image": "Afbeelding",
+      "stt": "ASR",
+      "tts": "TTS"
+    }
   },
   "sortModal": {
     "success": "Sortering succesvol bijgewerkt",

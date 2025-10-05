@@ -183,9 +183,20 @@
     "title": "Información del asistente"
   },
   "settingAppearance": {
+    "animationMode": {
+      "agile": "Ágil",
+      "desc": "Selecciona la velocidad de la animación para las respuestas de la aplicación",
+      "disabled": "Desactivado",
+      "elegant": "Elegante",
+      "title": "Animación de respuesta"
+    },
     "neutralColor": {
       "desc": "Personalización de escalas de grises con diferentes inclinaciones de color",
       "title": "Color Neutro"
+    },
+    "noAnimation": {
+      "desc": "Desactiva todos los efectos de animación en la aplicación",
+      "title": "Modo sin animación"
     },
     "preview": {
       "title": "Paleta de Colores"
@@ -225,6 +236,10 @@
       "setlimited": "Establecer cantidad de mensajes históricos",
       "title": "Limitar número de mensajes históricos",
       "unlimited": "Sin límite de mensajes históricos"
+    },
+    "enableStreaming": {
+      "desc": "Habilita la salida en streaming para mostrar la respuesta en tiempo real. Si se desactiva, solo se mostrará la respuesta completa.",
+      "title": "Habilitar salida en streaming"
     },
     "historyCount": {
       "desc": "Número de mensajes incluidos en cada solicitud (incluyendo las preguntas más recientes. Cada pregunta y respuesta se cuenta como 1)",

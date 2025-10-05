@@ -9,7 +9,8 @@ import { Flexbox } from 'react-layout-kit';
 import { getPrice } from '@/features/Conversation/Extras/Usage/UsageDetail/pricing';
 import { useGlobalStore } from '@/store/global';
 import { systemStatusSelectors } from '@/store/global/selectors';
-import { LobeDefaultAiModelListItem } from '@/types/aiModel';
+import { LobeDefaultAiModelListItem } from '../../../../../../packages/model-bank/src/types/aiModel';
+import { getCachedTextInputUnitRate, getWriteCacheInputUnitRate } from '@/utils/pricing';
 
 export const useStyles = createStyles(({ css, token }) => {
   return {
@@ -38,7 +39,7 @@ const ModelCard = memo<ModelCardProps>(({ pricing, id, provider, displayName }) 
   const isShowCredit = useGlobalStore(systemStatusSelectors.isShowCredit) && !!pricing;
   const updateSystemStatus = useGlobalStore((s) => s.updateSystemStatus);
 
-  const formatPrice = getPrice(pricing || {});
+  const formatPrice = getPrice(pricing || { units: [] });
 
   return (
     <Flexbox gap={8}>
@@ -87,7 +88,7 @@ const ModelCard = memo<ModelCardProps>(({ pricing, id, provider, displayName }) 
           <div />
           <Flexbox align={'center'} className={styles.pricing} gap={8} horizontal>
             {t('messages.modelCard.creditPricing')}:
-            {pricing?.cachedInput && (
+            {getCachedTextInputUnitRate(pricing) && (
               <Tooltip
                 title={t('messages.modelCard.pricing.inputCachedTokens', {
                   amount: formatPrice.cachedInput,
@@ -99,7 +100,7 @@ const ModelCard = memo<ModelCardProps>(({ pricing, id, provider, displayName }) 
                 </Flexbox>
               </Tooltip>
             )}
-            {pricing?.writeCacheInput && (
+            {getWriteCacheInputUnitRate(pricing) && (
               <Tooltip
                 title={t('messages.modelCard.pricing.writeCacheInputTokens', {
                   amount: formatPrice.writeCacheInput,

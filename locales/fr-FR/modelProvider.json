@@ -153,6 +153,28 @@
     "searchProviders": "Rechercher des fournisseurs...",
     "sort": "Tri personnalisé"
   },
+  "newapi": {
+    "apiKey": {
+      "desc": "Clé API fournie par la plateforme New API",
+      "placeholder": "Clé API New API",
+      "required": "La clé API est obligatoire",
+      "title": "Clé API"
+    },
+    "apiUrl": {
+      "desc": "Adresse API du service New API, généralement avec /v1",
+      "title": "Adresse API"
+    },
+    "enabled": {
+      "title": "Activer New API"
+    },
+    "models": {
+      "batchSelect": "Sélection multiple de modèles ({{count}})",
+      "fetch": "Récupérer la liste des modèles",
+      "selected": "Modèles sélectionnés",
+      "title": "Modèles disponibles"
+    },
+    "title": "New API"
+  },
   "ollama": {
     "checker": {
       "desc": "Vérifiez si l'adresse du proxy est correctement saisie",
@@ -185,10 +207,15 @@
     }
   },
   "providerModels": {
+    "batchSelect": {
+      "selected": "{{count}} modèles sélectionnés",
+      "title": "Sélection multiple"
+    },
     "config": {
       "aesGcm": "Votre clé et votre adresse de proxy seront chiffrées à l'aide de l'algorithme de chiffrement <1>AES-GCM</1>",
       "apiKey": {
         "desc": "Veuillez entrer votre {{name}} clé API",
+        "descWithUrl": "Veuillez saisir votre clé API {{name}}, <3>cliquez ici pour l'obtenir</3>",
         "placeholder": "{{name}} clé API",
         "title": "Clé API"
       },
@@ -305,6 +332,7 @@
         "latestTime": "Dernière mise à jour : {{time}}",
         "noLatestTime": "Aucune liste récupérée pour le moment"
       },
+      "noModelsInCategory": "Aucun modèle activé dans cette catégorie",
       "resetAll": {
         "conform": "Êtes-vous sûr de vouloir réinitialiser toutes les modifications du modèle actuel ? Après la réinitialisation, la liste des modèles actuels reviendra à l'état par défaut",
         "success": "Réinitialisation réussie",
@@ -315,7 +343,15 @@
       "title": "Liste des modèles",
       "total": "Un total de {{count}} modèles disponibles"
     },
-    "searchNotFound": "Aucun résultat trouvé"
+    "searchNotFound": "Aucun résultat trouvé",
+    "tabs": {
+      "all": "Tous",
+      "chat": "Conversation",
+      "embedding": "Vectorisation",
+      "image": "Image",
+      "stt": "Reconnaissance vocale",
+      "tts": "Synthèse vocale"
+    }
   },
   "sortModal": {
     "success": "Mise à jour du tri réussie",

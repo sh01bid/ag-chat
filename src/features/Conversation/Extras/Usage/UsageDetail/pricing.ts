@@ -1,21 +1,30 @@
-import { ChatModelPricing } from '@/types/aiModel';
-import { ModelPriceCurrency } from '@/types/llm';
-import { formatPriceByCurrency } from '@/utils/format';
+import {
+  formatPriceByCurrency,
+  getCachedTextInputUnitRate,
+  getTextInputUnitRate,
+  getTextOutputUnitRate,
+  getWriteCacheInputUnitRate,
+} from '@lobechat/utils';
+import { ModelPriceCurrency, Pricing } from 'model-bank';
 
-export const getPrice = (pricing: ChatModelPricing) => {
-  const inputPrice = formatPriceByCurrency(pricing?.input, pricing?.currency as ModelPriceCurrency);
-  const cachedInputPrice = formatPriceByCurrency(
-    pricing?.cachedInput,
-    pricing?.currency as ModelPriceCurrency,
-  );
-  const writeCacheInputPrice = formatPriceByCurrency(
-    pricing?.writeCacheInput,
-    pricing?.currency as ModelPriceCurrency,
-  );
-  const outputPrice = formatPriceByCurrency(
-    pricing?.output,
-    pricing?.currency as ModelPriceCurrency,
-  );
+export const getPrice = (pricing: Pricing) => {
+  const inputRate = getTextInputUnitRate(pricing);
+  const outputRate = getTextOutputUnitRate(pricing);
+  const cachedInputRate = getCachedTextInputUnitRate(pricing);
+  const writeCacheInputRate = getWriteCacheInputUnitRate(pricing);
+
+  const inputPrice = inputRate
+    ? formatPriceByCurrency(inputRate, pricing?.currency as ModelPriceCurrency)
+    : '0';
+  const cachedInputPrice = cachedInputRate
+    ? formatPriceByCurrency(cachedInputRate, pricing?.currency as ModelPriceCurrency)
+    : '0';
+  const writeCacheInputPrice = writeCacheInputRate
+    ? formatPriceByCurrency(writeCacheInputRate, pricing?.currency as ModelPriceCurrency)
+    : '0';
+  const outputPrice = outputRate
+    ? formatPriceByCurrency(outputRate, pricing?.currency as ModelPriceCurrency)
+    : '0';
 
   return {
     cachedInput: Number(cachedInputPrice),

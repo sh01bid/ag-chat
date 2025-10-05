@@ -1,6 +1,9 @@
 import { EdgeConfigClient, createClient } from '@vercel/edge-config';
+import createDebug from 'debug';
 
 import { appEnv } from '@/envs/app';
+
+const debug = createDebug('lobe-server:edge-config');
 
 const EdgeConfigKeys = {
   /**
@@ -11,6 +14,10 @@ const EdgeConfigKeys = {
    * Assistant whitelist
    */
   AssistantWhitelist: 'assistant_whitelist',
+  /**
+   * Feature flags configuration
+   */
+  FeatureFlags: 'feature_flags',
 };
 
 export class EdgeConfig {
@@ -25,7 +32,10 @@ export class EdgeConfig {
    * Check if Edge Config is enabled
    */
   static isEnabled() {
-    return !!appEnv.VERCEL_EDGE_CONFIG;
+    const isEnabled = !!appEnv.VERCEL_EDGE_CONFIG;
+    debug('VERCEL_EDGE_CONFIG env var: %s', appEnv.VERCEL_EDGE_CONFIG ? 'SET' : 'NOT SET');
+    debug('EdgeConfig enabled: %s', isEnabled);
+    return isEnabled;
   }
 
   getAgentRestrictions = async () => {
@@ -40,4 +50,17 @@ export class EdgeConfig {
       whitelist: string[] | undefined;
     };
   };
+
+  getFlagByKey = async (key: string) => {
+    const value = await this.client.get(key);
+    return value;
+  };
+
+  getFeatureFlags = async () => {
+    const featureFlags = await this.client.get(EdgeConfigKeys.FeatureFlags);
+    debug('Feature flags retrieved: %O', featureFlags);
+    return featureFlags as Record<string, boolean | string[]> | undefined;
+  };
 }
+
+export { EdgeConfigKeys };

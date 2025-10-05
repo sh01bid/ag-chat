@@ -1,10 +1,10 @@
+import { ClientSecretPayload } from '@lobechat/types';
 import { parse } from 'cookie';
 import debug from 'debug';
 import { User } from 'next-auth';
 import { NextRequest } from 'next/server';
 
 import {
-  JWTPayload,
   LOBE_CHAT_AUTH_HEADER,
   LOBE_CHAT_OIDC_AUTH_HEADER,
   enableClerk,
@@ -29,7 +29,7 @@ export interface OIDCAuth {
 export interface AuthContext {
   authorizationHeader?: string | null;
   clerkAuth?: IClerkAuth;
-  jwtPayload?: JWTPayload | null;
+  jwtPayload?: ClientSecretPayload | null;
   marketAccessToken?: string;
   nextAuth?: User;
   // Add OIDC authentication information
@@ -161,9 +161,9 @@ export const createLambdaContext = async (request: NextRequest): Promise<LambdaC
   if (enableNextAuth) {
     log('Attempting NextAuth authentication');
     try {
-      const { default: NextAuthEdge } = await import('@/libs/next-auth/edge');
+      const { default: NextAuth } = await import('@/libs/next-auth');
 
-      const session = await NextAuthEdge.auth();
+      const session = await NextAuth.auth();
       if (session && session?.user?.id) {
         auth = session.user;
         userId = session.user.id;

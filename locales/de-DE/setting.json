@@ -183,9 +183,20 @@
     "title": "Assistenteninformationen"
   },
   "settingAppearance": {
+    "animationMode": {
+      "agile": "Agil",
+      "desc": "Wählen Sie die Animationsgeschwindigkeit für die Reaktion der Anwendung",
+      "disabled": "Aus",
+      "elegant": "Elegant",
+      "title": "Reaktionsanimation"
+    },
     "neutralColor": {
       "desc": "Anpassung der Graustufen mit unterschiedlichen Farbneigungen",
       "title": "Neutrale Farben"
+    },
+    "noAnimation": {
+      "desc": "Deaktivieren Sie alle Animationseffekte in der Anwendung",
+      "title": "Kein Animationsmodus"
     },
     "preview": {
       "title": "Farbauswahl"
@@ -225,6 +236,10 @@
       "setlimited": "Setzen Sie die begrenzte Anzahl von Nachrichten",
       "title": "Historiennachrichten begrenzen",
       "unlimited": "Unbegrenzte Historiennachrichten"
+    },
+    "enableStreaming": {
+      "desc": "Aktivieren Sie den Streaming-Ausgang, um Antworten in Echtzeit anzuzeigen. Wenn deaktiviert, wird nur die vollständige Antwort angezeigt.",
+      "title": "Streaming-Ausgabe aktivieren"
     },
     "historyCount": {
       "desc": "Anzahl der Nachrichten pro Anfrage (einschließlich der neuesten Fragen und Antworten. Jede Frage und Antwort zählt als 1)",

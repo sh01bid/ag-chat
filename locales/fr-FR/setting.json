@@ -183,9 +183,20 @@
     "title": "Informations sur l'agent"
   },
   "settingAppearance": {
+    "animationMode": {
+      "agile": "Agile",
+      "desc": "Choisissez la vitesse d'animation des réponses des actions de l'application",
+      "disabled": "Désactivé",
+      "elegant": "Élégant",
+      "title": "Animation de réponse"
+    },
     "neutralColor": {
       "desc": "Personnalisation des nuances de gris selon les tendances de couleur",
       "title": "Couleur neutre"
+    },
+    "noAnimation": {
+      "desc": "Désactive toutes les animations dans l'application",
+      "title": "Mode sans animation"
     },
     "preview": {
       "title": "Palette de couleurs"
@@ -225,6 +236,10 @@
       "setlimited": "Définir le nombre de messages d'historique",
       "title": "Limite du nombre de messages historiques",
       "unlimited": "Aucune limite sur le nombre de messages historiques"
+    },
+    "enableStreaming": {
+      "desc": "Activez la diffusion en continu pour afficher les réponses en temps réel. Si désactivé, seule la réponse complète sera affichée.",
+      "title": "Activer la diffusion en continu"
     },
     "historyCount": {
       "desc": "Nombre de messages historiques à inclure dans chaque requête",

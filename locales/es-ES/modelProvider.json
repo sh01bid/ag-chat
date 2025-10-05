@@ -153,6 +153,28 @@
     "searchProviders": "Buscar proveedores...",
     "sort": "Orden personalizado"
   },
+  "newapi": {
+    "apiKey": {
+      "desc": "Clave API proporcionada por la plataforma New API",
+      "placeholder": "Clave API de New API",
+      "required": "La clave API es obligatoria",
+      "title": "Clave API"
+    },
+    "apiUrl": {
+      "desc": "Dirección API del servicio New API, generalmente debe incluir /v1",
+      "title": "Dirección API"
+    },
+    "enabled": {
+      "title": "Habilitar New API"
+    },
+    "models": {
+      "batchSelect": "Seleccionar modelos en lote ({{count}})",
+      "fetch": "Obtener lista de modelos",
+      "selected": "Modelos seleccionados",
+      "title": "Modelos disponibles"
+    },
+    "title": "New API"
+  },
   "ollama": {
     "checker": {
       "desc": "Prueba si la dirección del proxy de la interfaz se ha introducido correctamente",
@@ -185,10 +207,15 @@
     }
   },
   "providerModels": {
+    "batchSelect": {
+      "selected": "{{count}} modelos seleccionados",
+      "title": "Selección múltiple"
+    },
     "config": {
       "aesGcm": "Tu clave y dirección del proxy se cifrarán utilizando el algoritmo de cifrado <1>AES-GCM</1>",
       "apiKey": {
         "desc": "Por favor, introduce tu {{name}} API Key",
+        "descWithUrl": "Por favor, introduce tu clave API de {{name}}, <3>haz clic aquí para obtenerla</3>",
         "placeholder": "{{name}} API Key",
         "title": "API Key"
       },
@@ -305,6 +332,7 @@
         "latestTime": "Última actualización: {{time}}",
         "noLatestTime": "Lista aún no obtenida"
       },
+      "noModelsInCategory": "No hay modelos habilitados en esta categoría",
       "resetAll": {
         "conform": "¿Confirmar el restablecimiento de todas las modificaciones del modelo actual? Después del restablecimiento, la lista de modelos actuales volverá al estado predeterminado",
         "success": "Restablecimiento exitoso",
@@ -315,7 +343,15 @@
       "title": "Lista de modelos",
       "total": "Un total de {{count}} modelos disponibles"
     },
-    "searchNotFound": "No se encontraron resultados de búsqueda"
+    "searchNotFound": "No se encontraron resultados de búsqueda",
+    "tabs": {
+      "all": "Todos",
+      "chat": "Chat",
+      "embedding": "Vectorización",
+      "image": "Imagen",
+      "stt": "ASR",
+      "tts": "TTS"
+    }
   },
   "sortModal": {
     "success": "Orden actualizado con éxito",

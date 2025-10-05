@@ -183,9 +183,20 @@
     "title": "도우미 정보"
   },
   "settingAppearance": {
+    "animationMode": {
+      "agile": "민첩함",
+      "desc": "애플리케이션의 동작 반응 애니메이션 속도를 선택하세요",
+      "disabled": "끄기",
+      "elegant": "우아함",
+      "title": "반응 애니메이션"
+    },
     "neutralColor": {
       "desc": "다양한 색조의 그레이스케일 사용자 정의",
       "title": "중립 색상"
+    },
+    "noAnimation": {
+      "desc": "애플리케이션 내 모든 애니메이션 효과를 비활성화합니다",
+      "title": "애니메이션 없음 모드"
     },
     "preview": {
       "title": "팔레트"
@@ -225,6 +236,10 @@
       "setlimited": "사용할 메시지 수 설정",
       "title": "이전 메시지 수 제한",
       "unlimited": "이전 메시지 수 제한 없음"
+    },
+    "enableStreaming": {
+      "desc": "실시간으로 응답을 표시하려면 스트리밍 출력을 활성화하세요. 비활성화하면 전체 응답만 표시됩니다.",
+      "title": "스트리밍 출력 활성화"
     },
     "historyCount": {
       "desc": "요청당 포함되는 이전 메시지 수",

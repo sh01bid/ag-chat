@@ -153,6 +153,28 @@
     "searchProviders": "Cerca fornitori...",
     "sort": "Ordinamento personalizzato"
   },
+  "newapi": {
+    "apiKey": {
+      "desc": "Chiave API fornita dalla piattaforma New API",
+      "placeholder": "Chiave API New API",
+      "required": "La chiave API è obbligatoria",
+      "title": "Chiave API"
+    },
+    "apiUrl": {
+      "desc": "Indirizzo API del servizio New API, solitamente con /v1",
+      "title": "Indirizzo API"
+    },
+    "enabled": {
+      "title": "Abilita New API"
+    },
+    "models": {
+      "batchSelect": "Seleziona modelli in batch ({{count}})",
+      "fetch": "Recupera elenco modelli",
+      "selected": "Modelli selezionati",
+      "title": "Modelli disponibili"
+    },
+    "title": "New API"
+  },
   "ollama": {
     "checker": {
       "desc": "Verifica se l'indirizzo del proxy è stato compilato correttamente",
@@ -185,10 +207,15 @@
     }
   },
   "providerModels": {
+    "batchSelect": {
+      "selected": "{{count}} modelli selezionati",
+      "title": "Selezione batch"
+    },
     "config": {
       "aesGcm": "La tua chiave e l'indirizzo proxy saranno crittografati utilizzando l'algoritmo di crittografia <1>AES-GCM</1>",
       "apiKey": {
         "desc": "Inserisci la tua {{name}} API Key",
+        "descWithUrl": "Per favore inserisci la tua API Key di {{name}}, <3>clicca qui per ottenerla</3>",
         "placeholder": "{{name}} API Key",
         "title": "API Key"
       },
@@ -305,6 +332,7 @@
         "latestTime": "Ultimo aggiornamento: {{time}}",
         "noLatestTime": "Nessun elenco recuperato finora"
       },
+      "noModelsInCategory": "Nessun modello abilitato in questa categoria",
       "resetAll": {
         "conform": "Sei sicuro di voler ripristinare tutte le modifiche al modello corrente? Dopo il ripristino, l'elenco dei modelli correnti tornerà allo stato predefinito",
         "success": "Ripristino avvenuto con successo",
@@ -315,7 +343,15 @@
       "title": "Elenco dei modelli",
       "total": "Totale di {{count}} modelli disponibili"
     },
-    "searchNotFound": "Nessun risultato trovato"
+    "searchNotFound": "Nessun risultato trovato",
+    "tabs": {
+      "all": "Tutti",
+      "chat": "Chat",
+      "embedding": "Incorporamento",
+      "image": "Immagine",
+      "stt": "Riconoscimento vocale (ASR)",
+      "tts": "Sintesi vocale (TTS)"
+    }
   },
   "sortModal": {
     "success": "Ordinamento aggiornato con successo",

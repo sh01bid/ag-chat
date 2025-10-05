@@ -156,6 +156,28 @@ export default {
     searchProviders: '搜索服务商...',
     sort: '自定义排序',
   },
+  newapi: {
+    apiKey: {
+      desc: 'New API 平台提供的 API 密钥',
+      placeholder: 'New API API 密钥',
+      required: 'API 密钥是必需的',
+      title: 'API 密钥',
+    },
+    apiUrl: {
+      desc: 'New API 服务的 API 地址，大部分时候不要带 /v1',
+      title: 'API 地址',
+    },
+    enabled: {
+      title: '启用 New API',
+    },
+    models: {
+      batchSelect: '批量选择模型 ({{count}} 个)',
+      fetch: '获取模型列表',
+      selected: '已选择的模型',
+      title: '可用模型',
+    },
+    title: 'New API',
+  },
   ollama: {
     checker: {
       desc: '测试代理地址是否正确填写',
@@ -188,10 +210,15 @@ export default {
     },
   },
   providerModels: {
+    batchSelect: {
+      selected: '已选择 {{count}} 个模型',
+      title: '批量选择',
+    },
     config: {
       aesGcm: '您的秘钥与代理地址等将使用 <1>AES-GCM</1> 加密算法进行加密',
       apiKey: {
         desc: '请填写你的 {{name}} API Key',
+        descWithUrl: '请填写你的 {{name}} API Key，<3>点此获取</3>',
         placeholder: '{{name}} API Key',
         title: 'API Key',
       },
@@ -309,6 +336,7 @@ export default {
         latestTime: '上次更新时间：{{time}}',
         noLatestTime: '暂未获取列表',
       },
+      noModelsInCategory: '该分类下暂无启用的模型',
       resetAll: {
         conform: '确认重置当前模型的所有修改？重置后当前模型列表将会回到默认状态',
         success: '重置成功',
@@ -320,6 +348,14 @@ export default {
       total: '共 {{count}} 个模型可用',
     },
     searchNotFound: '未找到搜索结果',
+    tabs: {
+      all: '全部',
+      chat: '对话',
+      embedding: '向量化',
+      image: '图片',
+      stt: 'ASR',
+      tts: 'TTS',
+    },
   },
   sortModal: {
     success: '排序更新成功',

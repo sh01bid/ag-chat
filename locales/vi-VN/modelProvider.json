@@ -153,6 +153,28 @@
     "searchProviders": "Tìm kiếm nhà cung cấp...",
     "sort": "Sắp xếp tùy chỉnh"
   },
+  "newapi": {
+    "apiKey": {
+      "desc": "Khóa API do nền tảng New API cung cấp",
+      "placeholder": "Khóa API New API",
+      "required": "Khóa API là bắt buộc",
+      "title": "Khóa API"
+    },
+    "apiUrl": {
+      "desc": "Địa chỉ API của dịch vụ New API, thường cần kèm theo /v1",
+      "title": "Địa chỉ API"
+    },
+    "enabled": {
+      "title": "Kích hoạt New API"
+    },
+    "models": {
+      "batchSelect": "Chọn nhiều mô hình ({{count}} cái)",
+      "fetch": "Lấy danh sách mô hình",
+      "selected": "Mô hình đã chọn",
+      "title": "Mô hình khả dụng"
+    },
+    "title": "New API"
+  },
   "ollama": {
     "checker": {
       "desc": "Kiểm tra địa chỉ proxy có được nhập chính xác không",
@@ -185,10 +207,15 @@
     }
   },
   "providerModels": {
+    "batchSelect": {
+      "selected": "Đã chọn {{count}} mô hình",
+      "title": "Chọn nhiều"
+    },
     "config": {
       "aesGcm": "Khóa của bạn và địa chỉ proxy sẽ được mã hóa bằng thuật toán <1>AES-GCM</1>",
       "apiKey": {
         "desc": "Vui lòng nhập {{name}} API Key của bạn",
+        "descWithUrl": "Vui lòng nhập {{name}} API Key của bạn, <3>nhấn vào đây để lấy</3>",
         "placeholder": "{{name}} API Key",
         "title": "API Key"
       },
@@ -305,6 +332,7 @@
         "latestTime": "Thời gian cập nhật lần cuối: {{time}}",
         "noLatestTime": "Chưa lấy danh sách"
       },
+      "noModelsInCategory": "Không có mô hình nào được kích hoạt trong danh mục này",
       "resetAll": {
         "conform": "Xác nhận việc đặt lại tất cả các thay đổi của mô hình hiện tại? Sau khi đặt lại, danh sách mô hình hiện tại sẽ trở về trạng thái mặc định",
         "success": "Đặt lại thành công",
@@ -315,7 +343,15 @@
       "title": "Danh sách mô hình",
       "total": "Có tổng cộng {{count}} mô hình khả dụng"
     },
-    "searchNotFound": "Không tìm thấy kết quả tìm kiếm"
+    "searchNotFound": "Không tìm thấy kết quả tìm kiếm",
+    "tabs": {
+      "all": "Tất cả",
+      "chat": "Đối thoại",
+      "embedding": "Nhúng",
+      "image": "Hình ảnh",
+      "stt": "Nhận dạng giọng nói",
+      "tts": "Chuyển văn bản thành giọng nói"
+    }
   },
   "sortModal": {
     "success": "Cập nhật sắp xếp thành công",

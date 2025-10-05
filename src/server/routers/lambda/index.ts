@@ -4,8 +4,10 @@
 import { publicProcedure, router } from '@/libs/trpc/lambda';
 
 import { agentRouter } from './agent';
+import { aiChatRouter } from './aiChat';
 import { aiModelRouter } from './aiModel';
 import { aiProviderRouter } from './aiProvider';
+import { apiKeyRouter } from './apiKey';
 import { chunkRouter } from './chunk';
 import { configRouter } from './config';
 import { documentRouter } from './document';
@@ -29,8 +31,10 @@ import { userRouter } from './user';
 
 export const lambdaRouter = router({
   agent: agentRouter,
+  aiChat: aiChatRouter,
   aiModel: aiModelRouter,
   aiProvider: aiProviderRouter,
+  apiKey: apiKeyRouter,
   chunk: chunkRouter,
   config: configRouter,
   document: documentRouter,
